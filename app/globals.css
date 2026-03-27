@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Avenir Next", "Segoe UI Variable Display", "SF Pro Display",
+    "Helvetica Neue", sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", "IBM Plex Mono", monospace;
+  --canvas: #eff4fb;
+  --surface: rgba(255, 255, 255, 0.82);
+  --panel: #ffffff;
+  --panel-alt: #f3f7fc;
+  --text-primary: #0f172a;
+  --text-muted: #6b7280;
+  --border: rgba(148, 163, 184, 0.22);
+  --accent: #3b82f6;
+  --accent-soft: rgba(96, 165, 250, 0.16);
+  --success: #22c55e;
+  --danger: #ef4444;
+}
+
+:root[data-theme="dark"] {
+  --canvas: #07111f;
+  --surface: rgba(10, 19, 34, 0.78);
+  --panel: #0f1b30;
+  --panel-alt: #15243d;
+  --text-primary: #e5edf8;
+  --text-muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.18);
+  --accent: #60a5fa;
+  --accent-soft: rgba(96, 165, 250, 0.18);
+  --success: #4ade80;
+  --danger: #fb7185;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+body {
+  overflow: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+img {
+  display: block;
+}
+
+.shell-gradient {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(59, 130, 246, 0.14), transparent 24%),
+    radial-gradient(circle at 88% 22%, rgba(14, 165, 233, 0.12), transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0));
+}
+
+:root[data-theme="dark"] .shell-gradient {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(59, 130, 246, 0.2), transparent 24%),
+    radial-gradient(circle at 88% 18%, rgba(14, 165, 233, 0.16), transparent 22%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0));
+}
+
+.chat-shell {
+  position: relative;
+}
+
+.chat-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 18%);
+}
+
+@media (max-width: 1023px) {
+  body {
+    overflow: hidden;
+  }
+}
